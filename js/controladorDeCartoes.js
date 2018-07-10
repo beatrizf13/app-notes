@@ -21,7 +21,6 @@ var controladorDeCartoes = (function(){
 		} else if(tamMaior < 12 && quebras < 6 && totalDeLetras < 75) {
 			tipoCartao = "cartao--textoMedio";
 		}
-
 		return tipoCartao
 	}
 
@@ -34,11 +33,11 @@ var controladorDeCartoes = (function(){
 		}, 1000);
 	}
 
-	var contador = 0;
+	var i = 0;
 
 	function adicionaCartao(conteudo, cor){
 
-		contador++;
+		i++;
 
 		var tipoCartao = decideTipoCartao(conteudo);
 
@@ -46,9 +45,9 @@ var controladorDeCartoes = (function(){
 								  .on("input",editaCartaoHandler)
 		                          .append(conteudo)
 
-		var opcoes = criaOpcoesDoCartao(contador);
+		var opcoes = criaOpcoesDoCartao(i);
 
-		$("<div>").attr("id","cartao_" + contador)
+		$("<div>").attr("id","cartao_" + i)
 		          .attr("tabindex", 0)
                   .addClass("cartao")
                   .addClass(tipoCartao)
@@ -61,7 +60,7 @@ var controladorDeCartoes = (function(){
 	return {
 		adicionaCartao: adicionaCartao
 		,idUltimoCartao: function(){
-			return contador;
+			return i;
 		}
 	}
 
