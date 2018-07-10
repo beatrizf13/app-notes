@@ -1,7 +1,7 @@
 (function(){
 	"use strict"
 
-	var usuario = "bea@bea.com"
+	var usuario = "beatriz@email.com"
 
 	$(document).on("carrega", function(){
 		$.getJSON(
